@@ -1,10 +1,9 @@
-import { useState } from "react";
+import useEventData from "../../hooks/useEventsData";
 import Eventitem from "./components/Eventitem";
-import eventsJSON from "../../data/events.json";
 
 const Events = ({ searchTerm }) => {
-  const [data] = useState(eventsJSON);
-  const events = data._embedded.events;
+  const { events, isLoading, error } = useEventData();
+
   const handleClick = (id) => {
     console.log("Evento clickeado", id);
   };
@@ -15,6 +14,14 @@ const Events = ({ searchTerm }) => {
       eventsFiltered = eventsFiltered.filter((item) =>
         item.name.toLocaleLowerCase().includes(searchTerm)
       );
+    }
+
+    if (isLoading) {
+      return <p>Cargando...</p>;
+    }
+
+    if (error) {
+      return <p>Ha ocurrido un error</p>;
     }
     return eventsFiltered.map((eventItem) => (
       <Eventitem
@@ -28,11 +35,6 @@ const Events = ({ searchTerm }) => {
     ));
   };
 
-  return (
-    <div>
-      <h1>Eventos</h1>
-      {renderEvents()}
-    </div>
-  );
+  return <div>{renderEvents()}</div>;
 };
 export default Events;
