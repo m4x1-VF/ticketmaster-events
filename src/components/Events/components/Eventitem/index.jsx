@@ -1,4 +1,4 @@
-const Eventitem = ({ id, info, image, name, onEventClick }) => {
+const Eventitem = ({ id, date, time, image, name, onEventClick }) => {
   const handleSeeMoreClick = (event) => {
     event.stopPropagation();
     onEventClick(id);
@@ -11,7 +11,8 @@ const Eventitem = ({ id, info, image, name, onEventClick }) => {
       </figure>
       <section className="flex flex-col items-start ml-[14px]">
         <h4 className="m-0 text-[22px]">{name}</h4>
-        <p className="text-left m-0 text-ellipsis line-clamp-5 ">{info}</p>
+        <p className="text-left m-0 text-ellipsis line-clamp-5 ">{date}</p>
+        <p className="text-left m-0 text-ellipsis line-clamp-5 ">{time}</p>
         <button onClick={handleSeeMoreClick} className="mt-[8px]">
           Ver mas
         </button>

@@ -30,7 +30,8 @@ const Events = ({ searchTerm }) => {
         key={`event-item-${eventItem.id}`}
         id={eventItem.id}
         name={eventItem.name}
-        info={eventItem.info}
+        date={eventItem.dates.start.localDate}
+        time={eventItem.dates.start.localTime}
         image={eventItem.images[0].url}
         onEventClick={handleClick}
       />
