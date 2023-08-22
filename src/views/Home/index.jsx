@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Events from "../../components/Events";
-import useEventData from "../../hooks/useEventsData";
 import ReactPaginate from "react-paginate";
+import useEventsResults from "../../state/events-results";
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { events, isLoading, error, fetchEvents, page } = useEventData();
+  const { data, isLoading, error, fetchEvents } = useEventsResults();
+  const events = data?._embedded?.events || [];
+  const page = data?.page || {};
+
   const handleNavbarSearch = (term) => {
     fetchEvents(`&keyword=${term}`);
     setSearchTerm(term);

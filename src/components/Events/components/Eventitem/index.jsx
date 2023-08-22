@@ -1,4 +1,4 @@
-const Eventitem = ({ id, date, time, image, name, onEventClick }) => {
+const EventItem = ({ id, date, time, image, name, onEventClick }) => {
   const handleSeeMoreClick = (event) => {
     event.stopPropagation();
     onEventClick(id);
@@ -20,4 +20,4 @@ const Eventitem = ({ id, date, time, image, name, onEventClick }) => {
     </div>
   );
 };
-export default Eventitem;
+export default EventItem;
