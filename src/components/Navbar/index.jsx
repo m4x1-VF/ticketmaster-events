@@ -17,7 +17,7 @@ const Navbar = ({ onSearch }) => {
       <div className="flex flex-1 ml-14">
         <p className="text-[24px] font-bold">Mi taquilla</p>
       </div>
-      <form className="flex flex-1 items-center justify-end mr-[56px]">
+      <div className="flex flex-1 items-center justify-end mr-[56px]">
         <input
           placeholder="Busca tu evento favorito"
           onChange={handleInputChange}
@@ -25,7 +25,7 @@ const Navbar = ({ onSearch }) => {
           value={search}
           className="text-[16px] py-[6px] px-[12px] rounded  w-[200px]"
         />
-      </form>
+      </div>
     </div>
   );
 };

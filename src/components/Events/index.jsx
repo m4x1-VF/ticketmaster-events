@@ -1,9 +1,7 @@
-import useEventData from "../../hooks/useEventsData";
 import Eventitem from "./components/Eventitem";
 import { useNavigate } from "react-router-dom";
 
-const Events = ({ searchTerm }) => {
-  const { events, isLoading, error } = useEventData();
+const Events = ({ searchTerm, events }) => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
@@ -18,13 +16,6 @@ const Events = ({ searchTerm }) => {
       );
     }
 
-    if (isLoading) {
-      return <p>Cargando...</p>;
-    }
-
-    if (error) {
-      return <p>Ha ocurrido un error</p>;
-    }
     return eventsFiltered.map((eventItem) => (
       <Eventitem
         key={`event-item-${eventItem.id}`}

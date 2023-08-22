@@ -16,8 +16,6 @@ const SignupForm = () => {
     console.log(data);
   };
 
-  console.log(errors);
-
   return (
     <form onSubmit={handleSubmit(handleSubmitForm)}>
       <label>
