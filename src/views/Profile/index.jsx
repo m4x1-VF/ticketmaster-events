@@ -25,7 +25,7 @@ const Profile = () => {
             pathname.includes("my-info")
               ? "border-black border-b-2 font-medium"
               : ""
-          } ${"text-lg cursor-pointer hover: opacity-80 transition ease delay-75"}`}
+          } ${"text-lg cursor-pointer hover: opacity-80 transition ease-in-out delay-75"}`}
           onClick={() => {
             handleTabClick("my-info");
           }}
@@ -37,7 +37,7 @@ const Profile = () => {
             pathname.includes("liked-events")
               ? "border-black border-b-2 cursor-pointer font-medium"
               : "cursor-pointer"
-          } ${"text-lg cursor-pointer hover: opacity-80 transition ease delay-75"}`}
+          } ${"text-lg cursor-pointer hover: opacity-80 transition easeease-in-out delay-75"}`}
           onClick={() => {
             handleTabClick("liked-events");
           }}

@@ -27,7 +27,7 @@ const Navbar = ({ onSearch }) => {
           onChange={handleInputChange}
           onKeyDown={handleInputKeyDown}
           value={search}
-          className="text-[16px] py-[6px] px-[12px] rounded  w-[200px]"
+          className="text-[16px] py-[6px] px-[12px] rounded  w-[200px] border-2 border-black"
         />
         <Link to="/profile/my-info">
           <FontAwesomeIcon
