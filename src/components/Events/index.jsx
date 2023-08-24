@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Eventitem from "./components/Eventitem";
 import { useNavigate } from "react-router-dom";
 
@@ -31,4 +32,4 @@ const Events = ({ searchTerm, events }) => {
 
   return <div>{renderEvents()}</div>;
 };
-export default Events;
+export default memo(Events);

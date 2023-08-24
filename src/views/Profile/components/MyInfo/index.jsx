@@ -18,7 +18,7 @@ const MyInfo = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [setValue]);
 
   const handleFormSubmint = (data) => {
     try {
