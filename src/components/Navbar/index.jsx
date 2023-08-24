@@ -1,4 +1,8 @@
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ onSearch }) => {
   const [search, setSearch] = useState("");
@@ -25,6 +29,14 @@ const Navbar = ({ onSearch }) => {
           value={search}
           className="text-[16px] py-[6px] px-[12px] rounded  w-[200px]"
         />
+        <Link to="/profile/my-info">
+          <FontAwesomeIcon
+            icon={faUser}
+            size="lg"
+            style={{ color: "#000000" }}
+            className="ml-10"
+          />
+        </Link>
       </div>
     </div>
   );
