@@ -6,6 +6,7 @@ const Events = ({ searchTerm, events }) => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
+    console.log(id);
     navigate(`/detail/${id}`);
   };
 

@@ -1,46 +1,16 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+// import { useState } from "react";
+// import { useParams } from "react-router-dom";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
+import eventFetcher from "../../utils/fetchEvents";
+const pathname = window.location.pathname;
+const resource = eventFetcher(pathname.substring(8, pathname.length));
 
 const Detail = () => {
-  const { eventId } = useParams();
-  const [eventData, setEventData] = useState({});
-  const [error, setError] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchEventData = async () => {
-      try {
-        const response = await fetch(
-          `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${
-            import.meta.env.VITE_TICKETMASTER_API_KEY
-          }`
-        );
-        const data = await response.json();
-        console.log(data);
-        setEventData(data);
-        setIsLoading(false);
-      } catch (error) {
-        setEventData({});
-        setError(error);
-        setIsLoading(false);
-      }
-    };
-    fetchEventData();
-  }, []);
-
-  if (isLoading && Object.keys(eventData).length === 0) {
-    return <div>Cargando evento...</div>;
-  }
-
-  if (Object.keys(error) > 0) {
-    return <div>Error al cargar evento</div>;
-  }
-
+  // const { eventId } = useParams();
+  // const [eventData, setEventData] = useState({});
+  const eventData = resource.eventDetail.read();
   console.log(eventData);
-  console.log(import.meta.env.VITE_TICKETMASTER_API_KEY);
 
   return (
     <div>

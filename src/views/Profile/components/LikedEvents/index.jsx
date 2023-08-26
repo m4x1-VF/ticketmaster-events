@@ -46,7 +46,6 @@ const LikedEvents = () => {
   const handleClick = (eventId) => {
     navigate(`/detail/${eventId}`);
   };
-  console.log(events);
   return (
     <div className="flex flex-col justify-center items-center">
       {events.map((event, index) => (
